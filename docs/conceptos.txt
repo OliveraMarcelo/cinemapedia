@@ -1,0 +1,89 @@
+Entidades
+
+
+Que son las entidades ? 
+podemos pensar en las entidades como obnjetos que son 
+y seran identicos entre diferentes aplicaciones de nuestra empresa
+
+ej : clientes productos peliculas
+
+
+datasources:
+fuentes de datasources
+
+no deberia de importar de donde venga la datasources
+
+ej : the movie db, imdb , netflix api, etc..
+
+
+respositorios:
+
+deben de ser flexibles para poder cambiarlos en cualquier momento sin afectar nuestra aplicaciones
+
+gestor de estado :
+
+sirve de puente entre nuestros casos de uso y realizan los cambios visuales en los widgets.
+en caso de una implementacion completa, de aquitectura limpia, el gestor de estado llama casos de uso , y estos al repositorio
+
+
+del datasource : 
+
+que es una implementacion  ? 
+es el codigo que va temrinando llamar a la api 
+
+la parte del datasource abstracto ?
+son las reglas de negocio que todas las implementaciones deberian de seguir 
+
+
+con repositorios ? 
+
+
+la implementacion es la clase instanciada que vamos a utloizxar que recibe como argumento un datasource
+
+
+
+que queremos?
+
+
+las entidasdes son atomicas
+los repositorios llaman datasourceslas implementaciones de los datasources son quienes hacen el trabajo
+el gestor  de estado es el puente ayuda a realizar esos cambios en la ui 
+
+
+
+configurando tema de la app
+configurando go router en la app
+configurando ruta principal , renderiza home screen
+avance configuracndo variables de entotno
+
+
+la idea es implementar las peliculas ultimas 
+en infraestructure se crea las implementaciones que iran el el domain
+
+
+
+localfdatabase
+
+primero modifcamos ty agregamos @collection en nuestra entidadd para asi crear un esquema de la misma entidad 
+definiendo el nombre del esquema igual a la entidad part entidad.g.datasource
+
+luego definimos nuestro datasource en el domain
+
+
+favorite movies provider?
+es un state notifier 
+nos va a ayudar para la paginacion infinita
+
+
+entonces tenemos que crear un notifier , 
+
+storagemoviesnotifier extiende del state notifier y va manejar un map int movie
+{
+    1234:Movie,
+    1235:Movie,
+    1236:Movie
+}
+lo inicializamos como un objeto vacio con page = 0 
+nos llamamos loadMovies la cual nos carga las peliculas favoritas
+
+
